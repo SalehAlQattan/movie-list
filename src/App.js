@@ -1,5 +1,8 @@
+// components
+import MovieList from './components/MovieList';
+
 function App() {
-  return <div>Heloo</div>;
+  return <MovieList />;
 }
 
 export default App;
