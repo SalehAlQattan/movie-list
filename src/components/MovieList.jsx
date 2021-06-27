@@ -1,20 +1,30 @@
 // data
-import productStore from '../stores/productsStore';
+import productStore from "../stores/productsStore";
 // components
-import MovieItem from './MovieItem';
+import MovieItem from "./MovieItem";
 
 const MovieList = () => {
-  const moviesList = productStore.movies.map((movie) => {
-    return (
-      <MovieItem
-        title={movie.title}
-        released={movie.released}
-        genre={movie.genre}
-      />
-    );
-  });
+  const moviesList = productStore.movies
+    .filter((movie) => movie.status === true)
+    .map((movie) => {
+      return (
+        <MovieItem
+          movie={movie}
+          // title={movie.title}
+          // released={movie.released}
+          // genre={movie.genre}
+          // id={movie.id}
+          key={movie.id}
+        />
+      );
+    });
 
-  return <div>{moviesList}</div>;
+  return (
+    <div>
+      <h1>Movie</h1>
+      {moviesList}
+    </div>
+  );
 };
 
 export default MovieList;

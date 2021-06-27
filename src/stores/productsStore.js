@@ -1,12 +1,15 @@
 // data
-import movies from '../movies';
+import movies from "../movies";
 // mobx
-import { makeAutoObservable } from 'mobx';
+import { makeAutoObservable } from "mobx";
 // store class
 
 class ProductsStore {
   // data
   movies = movies;
+
+  // WatchedList
+  watchedList = [];
 
   constructor() {
     makeAutoObservable(this);
