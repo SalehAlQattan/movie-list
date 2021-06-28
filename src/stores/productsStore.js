@@ -1,19 +1,24 @@
 // data
-import movies from "../movies";
+import movies from '../movies';
 // mobx
-import { makeAutoObservable } from "mobx";
+import { makeAutoObservable } from 'mobx';
 // store class
 
 class ProductsStore {
   // data
   movies = movies;
 
-  // WatchedList
-  watchedList = [];
-
   constructor() {
     makeAutoObservable(this);
   }
+  // update
+  updateMovie = (updatedMovie) => {
+    // here
+    // updatedMovie.id << status if true >> false
+    const movie = this.movies.find((movie) => movie.id === updatedMovie.id);
+
+    movie.status = !movie.status;
+  };
 
   // make a function to delete a movie
   deleteMovie = (movieId) => {

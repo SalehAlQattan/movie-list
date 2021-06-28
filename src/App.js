@@ -1,13 +1,15 @@
 // components
-import MovieList from "./components/MovieList";
-import WatchedList from "./components/WatchedList";
+import MovieList from './components/MovieList';
+import WatchedList from './components/WatchedList';
+// styles
+import { MoviesContainer } from './styles';
 
 function App() {
   return (
-    <div style={{ display: "flex" }}>
+    <MoviesContainer>
       <MovieList />
       <WatchedList />
-    </div>
+    </MoviesContainer>
   );
 }
 

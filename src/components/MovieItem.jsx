@@ -1,20 +1,23 @@
-import productStore from "../stores/productsStore";
 // styled
-import { ListWrapper } from "../styles";
+import { ListWrapper } from '../styles';
+//
+import productStore from '../stores/productsStore';
+//
+import { observer } from 'mobx-react';
 
 const MovieItem = ({ movie }) => {
   const handleClick = () => {
-    // Move the original array to the new array
-    console.log(movie.id);
+    productStore.updateMovie(movie);
   };
+
   return (
     <ListWrapper>
       <h2>The title is: {movie.title}</h2>
       <h2>Release date: {movie.released}</h2>
       <h2>Genre: {movie.genre}</h2>
-      <button onClick={handleClick}> ADD</button>
+      <button onClick={handleClick}>Watched</button>
     </ListWrapper>
   );
 };
 
-export default MovieItem;
+export default observer(MovieItem);

@@ -1,11 +1,9 @@
 // Store
-import productStore from "../stores/productsStore";
-
-// State
-import { useState } from "react";
-
+import productStore from '../stores/productsStore';
 //components
-import MovieItem from "./MovieItem";
+import MovieItem from './MovieItem';
+//
+import { observer } from 'mobx-react';
 
 const WatchedList = () => {
   const watchedList = productStore.movies
@@ -22,4 +20,4 @@ const WatchedList = () => {
   );
 };
 
-export default WatchedList;
+export default observer(WatchedList);
