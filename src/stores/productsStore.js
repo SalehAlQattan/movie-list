@@ -1,7 +1,7 @@
 // data
-import movies from '../movies';
+import movies from "../movies";
 // mobx
-import { makeAutoObservable } from 'mobx';
+import { makeAutoObservable } from "mobx";
 // store class
 
 class ProductsStore {
@@ -22,11 +22,14 @@ class ProductsStore {
 
   // make a function to delete a movie
   deleteMovie = (movieId) => {
-    // here
+    let newFilterdMovies = this.movies.filter((movie) => movie.id !== movieId);
+    this.movies = newFilterdMovies;
   };
   // make a function to add a movie
   createMovie = (newMovie) => {
-    // here
+    // newMovie.status = false;
+    newMovie.id = this.movies.length + 1;
+    this.movies.push(newMovie);
   };
 }
 // creating new instance of the class

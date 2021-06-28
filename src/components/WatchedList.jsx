@@ -1,9 +1,9 @@
 // Store
-import productStore from '../stores/productsStore';
+import productStore from "../stores/productsStore";
 //components
-import MovieItem from './MovieItem';
+import MovieItem from "./MovieItem";
 //
-import { observer } from 'mobx-react';
+import { observer } from "mobx-react";
 
 const WatchedList = () => {
   const watchedList = productStore.movies
