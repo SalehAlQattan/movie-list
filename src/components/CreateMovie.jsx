@@ -36,7 +36,7 @@ const CreateMovie = () => {
         onChange={handleChange}
         name="poster"
         type="text"
-        placeholder="Enter Movie Image"
+        placeholder="Enter Movie Image URL"
       />
       <button type="submit">Add +</button>
     </form>
