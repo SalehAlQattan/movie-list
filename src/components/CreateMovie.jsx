@@ -1,36 +1,38 @@
 // productStore
-import productStore from "../stores/productsStore";
-
-// state
-import { useState } from "react";
+import productStore from '../stores/productsStore';
+// hook
+import { useState } from 'react';
 
 const CreateMovie = () => {
+  // carete movie state
   const [movieTitle, setMovieTitle] = useState({
-    title: "",
-    slug: "",
-    released: "",
-    runtime: "",
-    genre: "",
-    plot: "",
-    poster: "",
+    title: '',
+    slug: '',
+    released: '',
+    runtime: '',
+    genre: '',
+    plot: '',
+    poster: '',
     status: false,
   });
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  // carete movie function
+  const handleSubmit = (event) => {
+    event.preventDefault();
     productStore.createMovie(movieTitle);
-    console.log(movieTitle.id);
   };
-
-  const handleChange = (e) => {
-    setMovieTitle({ ...movieTitle, [e.target.name]: e.target.value });
-    // productStore.createMovie(movieTitle);
-    console.log(movieTitle);
+  // getting data from form
+  const handleChange = (event) => {
+    setMovieTitle({ ...movieTitle, [event.target.name]: event.target.value });
   };
   return (
     <form onSubmit={handleSubmit}>
-      <button type="submit">Add</button>
-      <input name="title" onChange={handleChange} type="text"></input>
+      <input
+        placeholder="Movie Title"
+        name="title"
+        onChange={handleChange}
+        type="text"
+      ></input>
+      <button type="submit">Add +</button>
     </form>
   );
 };

@@ -1,13 +1,13 @@
-// Store
+// data
 import productStore from '../stores/productsStore';
-//components
+// components
 import MovieItem from './MovieItem';
 // mobx
 import { observer } from 'mobx-react';
 // hook
 import { useState } from 'react';
 
-const WatchedList = () => {
+const UnWatchedList = () => {
   // search state
   const [query, setQuery] = useState('');
   // search function
@@ -15,8 +15,8 @@ const WatchedList = () => {
     setQuery(event.target.value);
   };
 
-  const watchedList = productStore.movies
-    .filter((movie) => movie.status === true)
+  const unWatchedList = productStore.movies
+    .filter((movie) => movie.status === false)
     .filter((movie) => movie.title.toLowerCase().includes(query.toLowerCase()))
     .map((movie) => {
       return <MovieItem movie={movie} key={movie.id} />;
@@ -24,11 +24,11 @@ const WatchedList = () => {
 
   return (
     <div>
-      <h2>Watched {watchedList.length}</h2>
+      <h2>Watch List {unWatchedList.length}</h2>
       <input onChange={handleChange} placeholder="Search..." type="text" />
-      {watchedList}
+      {unWatchedList}
     </div>
   );
 };
 
-export default observer(WatchedList);
+export default observer(UnWatchedList);
